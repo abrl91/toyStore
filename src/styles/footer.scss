@@ -1,0 +1,25 @@
+.footer {
+  padding: 2rem 3rem;
+  box-shadow: $box-shadow-light;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  &__copyrights {
+    color: #fff;
+    font-size: 1.6rem;
+  }
+
+  &__contact {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 3px;
+  }
+
+  &__contact-link {
+    text-decoration: none;
+    margin: 0 .5rem;
+  }
+}
