@@ -1,15 +1,22 @@
 .products {
   padding: 1.5rem 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 
   .product {
     width: 225px;
     background-color: #fff;
     box-shadow: $box-shadow-dark;
+    border-radius: 3px;
+    margin: 0 1.2rem;
 
     &__image {
       display: inline-block;
       height: 150px;
-      width: auto;
+      max-width: 225px;
+      border-radius: 3px;
     }
 
     &__details {
