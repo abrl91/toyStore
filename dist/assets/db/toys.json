@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "description": "smart robot",
+    "price": "89$",
+    "image": "./assets/images/robot.jpg"
+  },
+  {
+    "id": 2,
+    "description": "driving giraffe",
+    "price": "25$",
+    "image": "./assets/images/giraffe.jpg"
+  },
+  {
+    "id": 3,
+    "description": "driving boat",
+    "price": "69$",
+    "image": "./assets/images/boat.jpg"
+  },
+  {
+    "id": 4,
+    "description": "beautiful red car",
+    "price": "10$",
+    "image": "./assets/images/red-car.jpg"
+  },
+  {
+    "id": 5,
+    "description": "train with rail",
+    "price": "110$",
+    "image": "./assets/images/train.jpg"
+  },
+  {
+    "id": 6,
+    "description": "mix of good toys",
+    "price": "99$",
+    "image": "./assets/images/mix-package.jpg"
+  },
+  {
+    "id": 7,
+    "description": "colorful cubes",
+    "price": "49$",
+    "image": "./assets/images/cubes.jpg"
+  },
+  {
+    "id": 8,
+    "description": "your best friend for debugging",
+    "price": "9$",
+    "image": "./assets/images/rubber-duck.jpg"
+  },
+  {
+    "id": 9,
+    "description": "always look at the bright sides of life",
+    "price": "30$",
+    "image": "./assets/images/emoji.jpg"
+  },
+  {
+    "id": 10,
+    "description": "funny dinosaur",
+    "price": "35$",
+    "image": "./assets/images/dinosaur.jpg"
+  }
+]

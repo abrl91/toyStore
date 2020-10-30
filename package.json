@@ -1,0 +1,29 @@
+{
+  "name": "toystore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode=development",
+    "build": "webpack --mode=production",
+    "start": "webpack-dev-server --mode=development --open"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.0",
+    "file-loader": "^4.1.0",
+    "html-webpack-plugin": "^4.5.0",
+    "image-webpack-loader": "^5.0.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.4",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
