@@ -6,23 +6,75 @@
     <title>ToyStore</title>
     <link rel="shortcut icon" href="./assets/icons/toy-shop.png" type="image/x-icon">
 </head>
-<body>
+<body class="container">
     <header class="header">
         <img src="./assets/icons/toy-shop.png" alt="logo" class="header__logo">
         <h4 class="header__name">ToyStore</h4>
     </header>
-    <main>
         <section class="products">
+            <div class="product">
+                <img class="product__image" src="./assets/images/boat.jpg" alt="product image">
+                <div class="product__details">
+                    <p class="product__description">boat</p>
+                    <p class="product__price">$25</p>
+                </div>
+                <div class="product__action">
+                    <input class="product__action-count" type="number" value="0" min="0" max="10">
+                    <button class="btn-action product__action-addToCart">
+                        <img src="./assets/icons/add-to-cart.png">
+                    </button>
+                </div>
+            </div>
 
         </section>
 
         <section class="cart">
-
+            <img class="cart__image" src="./assets/icons/shopping-cart.png" alt="cart image">
+            <h3 class="cart__title">Cart</h3>
+            <div class="cart-products">
+                <div class="cart-product">
+                    <img class="cart-product__image" src="./assets/images/boat.jpg" alt="">
+                    <div class="cart-product__details">
+                        <p class="cart-product__description">
+                            name:
+                            <span>boat</span>
+                        </p>
+                        <p class="cart-product__price">
+                            price:
+                            <span>50$</span>
+                        </p>
+                        <p class="cart-product__count">
+                            count:
+                            <span>2</span>
+                        </p>
+                    </div>
+                    <div class="cart-product__actions">
+                        <button class="btn-action cart-product__actions-remove">
+                            <img src="./assets/icons/trash.png">
+                        </button>
+                        <input class="cart-product__action-count" type="number" value="0" min="0" max="10">
+                    </div>
+                </div>
+            </div>
+            <div class="cart__total">
+                <p class="cart__total-price">Total:
+                    <span>50$</span>
+                </p>
+            </div>
         </section>
 
         <footer class="footer">
-
+            <p class="footer__copyrights">
+                &copy;2020 Amit Barletz
+            </p>
+            <div class="footer__contact">
+                <a class="footer__contact-link" href="https://github.com/abrl91" target="_blank">
+                    <img src="./assets/icons/github.png">
+                </a>
+                <a class="footer__contact-link" href="https://www.linkedin.com/in/amitbarletz/" target="_blank">
+                    <img src="./assets/icons/linkedin.png">
+                </a>
+            </div>
         </footer>
-    </main>
 </body>
 </html>

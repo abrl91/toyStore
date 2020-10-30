@@ -1,0 +1,42 @@
+.products {
+  padding: 1.5rem 3rem;
+
+  .product {
+    width: 225px;
+    background-color: #fff;
+    box-shadow: $box-shadow-dark;
+
+    &__image {
+      display: inline-block;
+      height: 150px;
+      width: auto;
+    }
+
+    &__details {
+      padding: .5rem 1rem;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+    }
+
+    &__description {
+    }
+
+    &__price {
+    }
+
+    &__action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+
+      &-addToCart {
+
+      }
+
+      &-count {
+
+      }
+    }
+  }
+}
