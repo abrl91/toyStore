@@ -4,7 +4,7 @@ import * as api from './apiService';
 import {elements} from "./utilities/elements";
 
 import { Product } from "./models/Product";
-import * as Cart from "./models/Cart";
+import Cart from "./models/Cart";
 import * as cartView from './views/cartView';
 import {productView} from "./views/productView"
 
@@ -36,18 +36,15 @@ const init = async () => {
     await productController();
 };
 
+// call init fn when document load to render the products
 document.body.onload = init;
 
 
-
 const cartController = (product) => {
-    if (!state.cart) {
-        state.cart = [];
-    }
+    if (!state.cart) state.cart = new Cart();
 
     // addToCart and update cart view
-    Cart.addToCart(product);
-    cartView.cartItem(product);
+    state.cart.addToCart(product);
 
     // listen to change count and update price and total
 
@@ -56,14 +53,16 @@ const cartController = (product) => {
 
 elements.clearCart.addEventListener('click', () => {
     // clear cart and updateView
-    Cart.clearCart(state);
+    state.cart.clearCart(state);
     cartView.clearCartView();
 })
 
-document.querySelector('.container').addEventListener('click', e => {
-    const addToCartBtn = e.target.closest('.product__action-addToCart');
-    addToCartBtn.addEventListener('click', () => {
-        console.log('Booooo')
 
-    })
+// handling product events
+
+document.querySelector('.products').addEventListener('click', e => {
+    const id = e.target.closest('.products').dataset.id;
+    if (e.target.closest('.product__action-addToCart')) {
+       // state.cart.addToCart(state.cart, state.products, id);
+    }
 })
