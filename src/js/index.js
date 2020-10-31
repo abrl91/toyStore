@@ -34,19 +34,13 @@ const init = async () => {
     // handling product events
     document.querySelectorAll('.product').forEach(product => {
         product.addEventListener('click', e => {
-            const id = product.dataset.id;
-            const chosenProduct = state.products.find(product => {
-                if (product.id === id) {
-                    console.log(product)
-                    return product;
-                }
-                return product
-            });
+            const id = parseInt(product.dataset.id);
+            const chosenProduct = state.products.find(product => product.id === id);
             console.log(chosenProduct)
             if (!state.cart) state.cart = new Cart();
             state.cart.addToCart(chosenProduct);
-            console.log(state)
             cartView.cartItem(chosenProduct);
+            console.log(state)
         })
     })
 };

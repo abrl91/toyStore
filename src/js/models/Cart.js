@@ -4,6 +4,12 @@ export default class Cart {
     }
 
     addToCart(product) {
+        if (this.cartItems.length) {
+            for (let item of this.cartItems) {
+                if (item.id === product.id) continue;
+                this.cartItems.push(product);
+            }
+        }
         this.cartItems.push(product);
     }
 

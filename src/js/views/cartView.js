@@ -11,7 +11,7 @@ export const cartItem = product => {
                         </p>
                         <p class="cart-product__price">
                             price:
-                            <span>${product.price}</span>
+                            <span>${product.price}$</span>
                         </p>
                         <p class="cart-product__count">
                             count:
