@@ -1,11 +1,10 @@
 export class Product {
-    constructor(id, title, price, image, count) {
+    constructor({id, description, price, image}) {
         this.id = id;
-        this.description = title;
+        this.description = description;
         this.price = price;
         this.image = image;
-        this.count = count;
-        this.total = this.count * this.price
+        this.count = 0;
     }
 
     // onChangeCount(arrow) {

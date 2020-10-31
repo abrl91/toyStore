@@ -6,10 +6,10 @@ export const productView = product => {
                 <img class="product__image" src="${product.image}" alt="product image">
                 <div class="product__details">
                     <p class="product__description">${product.description}</p>
-                    <p class="product__price">${product.price}</p>
+                    <p class="product__price">${product.price}$</p>
                 </div>
                 <div class="product__action">
-                    <input class="product__action-count" type="number" value="0" min="0" max="10">
+                    <input class="product__action-count" type="number" value="${product.count}" min="0" max="10">
                     <button class="btn-action product__action-addToCart">
                         <img src="./assets/icons/add-to-cart.png">
                     </button>

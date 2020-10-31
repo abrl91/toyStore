@@ -1,11 +1,10 @@
-export default class cart {
+export default class Cart {
     constructor() {
-        this.cartItems = []
+        this.cartItems = [];
     }
 
-    addToCart(cart, products, productId) {
-        const chosenProduct = products.find(product => product.id === productId);
-        cart.push(chosenProduct);
+    addToCart(product) {
+        this.cartItems.push(product);
     }
 
     calcTotal(cartItems) {
