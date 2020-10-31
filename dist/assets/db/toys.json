@@ -43,13 +43,13 @@
   },
   {
     "id": 8,
-    "description": "your best friend for debugging",
+    "description": "rubber duck",
     "price": "9$",
     "image": "./assets/images/rubber-duck.jpg"
   },
   {
     "id": 9,
-    "description": "always look at the bright sides of life",
+    "description": "emojis",
     "price": "30$",
     "image": "./assets/images/emoji.jpg"
   },
