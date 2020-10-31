@@ -37,11 +37,14 @@
 
 .cart-products {
   margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .cart-product {
   display: flex;
   align-items: center;
+  margin: 1.2rem 0;
 
   &__image {
     height: 80px;

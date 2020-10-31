@@ -29,14 +29,26 @@ const productController = async () => {
 
 const init = async () => {
     await productController();
-// handling product events
+    // cartController();
+
+    // handling product events
     document.querySelectorAll('.product').forEach(product => {
         product.addEventListener('click', e => {
-            console.dir(product.dataset.id);
+            const id = product.dataset.id;
+            const chosenProduct = state.products.find(product => {
+                if (product.id === id) {
+                    console.log(product)
+                    return product;
+                }
+                return product
+            });
+            console.log(chosenProduct)
+            if (!state.cart) state.cart = new Cart();
+            state.cart.addToCart(chosenProduct);
+            console.log(state)
+            cartView.cartItem(chosenProduct);
         })
     })
-
-    cartController()
 };
 
 // call init fn when document load to render the products
@@ -47,7 +59,8 @@ const cartController = () => {
     if (!state.cart) state.cart = new Cart();
 
     // addToCart and update cart view
-    console.log(state)
+
+
     // listen to change count and update price and total
 
 

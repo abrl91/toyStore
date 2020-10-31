@@ -2,8 +2,7 @@ import {elements} from "../utilities/elements";
 
 export const cartItem = product => {
     let markup = `
-        <div class="cart-products" data-id="${product.id}">
-                <div class="cart-product">
+                <div class="cart-product" data-id="${product.id}">
                     <img class="cart-product__image" src="${product.image}" alt="">
                     <div class="cart-product__details">
                         <p class="cart-product__description">
@@ -23,10 +22,9 @@ export const cartItem = product => {
                         <button class="btn-action cart-product__actions-remove">
                             <img src="./assets/icons/trash.png">
                         </button>
-                        <input class="cart-product__action-count" type="number" value="0" min="0" max="10">
+                        <input class="cart-product__action-count" type="number" value="${product.count}" min="0" max="10">
                     </div>
                 </div>
-            </div>
     
     `
     elements.cartItems.insertAdjacentHTML('beforeend', markup);

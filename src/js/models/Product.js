@@ -4,7 +4,7 @@ export class Product {
         this.description = description;
         this.price = price;
         this.image = image;
-        this.count = 0;
+        this.count = 1;
     }
 
     // onChangeCount(arrow) {
