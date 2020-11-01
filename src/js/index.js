@@ -38,8 +38,9 @@ const init = async () => {
             const chosenProduct = state.products.find(product => product.id === id);
             console.log(chosenProduct)
             if (!state.cart) state.cart = new Cart();
-            state.cart.addToCart(chosenProduct);
-            cartView.cartItem(chosenProduct);
+            if (state.cart.addToCart(chosenProduct)) {
+                cartView.cartItem(chosenProduct);
+            }
             console.log(state)
         })
     })
