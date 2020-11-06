@@ -6,8 +6,4 @@ export class Product {
         this.image = image;
         this.count = 1;
     }
-
-    // onChangeCount(arrow) {
-    //    return  arrow === 'up' ? this.total += this.price : this.total -= this.price;
-    // }
 }

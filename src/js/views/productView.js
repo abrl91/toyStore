@@ -15,7 +15,6 @@ export const productView = product => {
                     </button>
                 </div>
             </div>
-            
     `;
 
     elements.products.insertAdjacentHTML('beforeend', markup);

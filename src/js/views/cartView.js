@@ -1,6 +1,6 @@
 import {elements} from "../utilities/elements";
 
-export const cartItem = product => {
+export const renderCartItems = product => {
     let markup = `
                 <div class="cart-product" data-id="${product.id}">
                     <img class="cart-product__image" src="${product.image}" alt="">

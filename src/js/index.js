@@ -1,18 +1,34 @@
 import styles from '../styles/base.scss';
 
-import * as api from './apiService';
-import {elements} from "./utilities/elements";
 
 import { Product } from "./models/Product";
 import Cart from "./models/Cart";
 import * as cartView from './views/cartView';
 import {productView} from "./views/productView"
+import {elements} from "./utilities/elements";
 
+/** GLOBAL STATE **/
 const state = {}
 
-const productController = async () => {
+/* --- API ---
+* loadProducts
+* addToCart
+* changeCount
+* updateTotalPrice
+* removeProduct
+* clearCart
+* */
+
+window.addEventListener('load', async () => {
+    await fetchProducts('./assets/db/toys.json');
+    await productController()
+    cartController();
+})
+
+// fetch products
+const fetchProducts = async (url) => {
     try {
-        await fetch('./assets/db/toys.json')
+        await fetch(url)
             .then(res => res.json())
             .then(data => {
                 state.products = data.map(product => new Product(product));
@@ -23,46 +39,34 @@ const productController = async () => {
     } catch (err) {
         console.log(err)
     }
+}
+
+/** PRODUCT CONTROLLER **/
+const productController = async () => {
+
 
 }
 
-
-const init = async () => {
-    await productController();
-    // cartController();
-
-    // handling product events
-    document.querySelectorAll('.product').forEach(product => {
-        product.addEventListener('click', e => {
-            const id = parseInt(product.dataset.id);
-            const chosenProduct = state.products.find(product => product.id === id);
-            console.log(chosenProduct)
-            if (!state.cart) state.cart = new Cart();
-            if (state.cart.addToCart(chosenProduct)) {
-                cartView.cartItem(chosenProduct);
-            }
-            console.log(state)
-        })
-    })
-};
-
-// call init fn when document load to render the products
-document.body.onload = init;
+// handling product buttons clicked
+elements.products.addEventListener('click', e => {
+    const id = e.target.closest('.product').dataset.id;
+    if (e.target.matches('.product__action-addToCart *')) {
+        const chosenProduct = state.products.find(p => p.id === parseInt(id));
+        state.cart.isDuplicate(chosenProduct)
+        console.log(state.cart.cartItems)
+        // if (!state.cart.isDuplicate(chosenProduct)) {
+        //     cartView.renderCartItems(chosenProduct)
+        // }
+    }
+})
 
 
-const cartController = () => {
+
+/** CART CONTROLLER **/
+const cartController = (productId) => {
     if (!state.cart) state.cart = new Cart();
 
-    // addToCart and update cart view
-
-
-    // listen to change count and update price and total
-
-
 }
 
-elements.clearCart.addEventListener('click', () => {
-    // clear cart and updateView
-    state.cart.clearCart(state);
-    cartView.clearCartView();
-})
+
+
