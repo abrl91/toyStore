@@ -23,6 +23,7 @@ window.addEventListener('load', async () => {
     await fetchProducts('./assets/db/toys.json');
     await productController()
     cartController();
+
 })
 
 // fetch products
@@ -52,11 +53,10 @@ elements.products.addEventListener('click', e => {
     const id = e.target.closest('.product').dataset.id;
     if (e.target.matches('.product__action-addToCart *')) {
         const chosenProduct = state.products.find(p => p.id === parseInt(id));
-        state.cart.isDuplicate(chosenProduct)
-        console.log(state.cart.cartItems)
-        // if (!state.cart.isDuplicate(chosenProduct)) {
-        //     cartView.renderCartItems(chosenProduct)
-        // }
+        if (state.cart.addToCart(chosenProduct)) {
+            cartView.renderCartItems(chosenProduct);
+        }
+
     }
 })
 

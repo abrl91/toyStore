@@ -3,15 +3,13 @@ export default class Cart {
         this.cartItems = [];
     }
 
-    isDuplicate(product) {
-        if (this.cartItems.length) {
-
-        } else {
-            this.cartItems.push(product)
+    addToCart(product) {
+        const itemExist = this.cartItems.some(item => item.id === product.id);
+        if (!itemExist) {
+            this.cartItems.push(product);
+            return true;
         }
-        // if (!item) {
-        //     this.cartItems.push(item);
-        // }
+        return false;
     }
 
     calcTotal(cartItems) {
