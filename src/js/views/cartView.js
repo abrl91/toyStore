@@ -22,7 +22,7 @@ export const renderCartItems = product => {
                         <button class="btn-action cart-product__actions-remove">
                             <img src="./assets/icons/trash.png">
                         </button>
-                        <input class="cart-product__action-count" type="number" value="${product.count}" min="0" max="10">
+                        <input class="cart-product__action-count" type="number" value="${product.count}" min="1" max="10">
                     </div>
                 </div>
     

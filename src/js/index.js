@@ -82,6 +82,17 @@ elements.cartItems.addEventListener('click', e => {
         state.cart.removeProduct(id);
         cartView.onRemove(state.cart.cartItems, id);
         elements.cartItems.removeChild(e.target.closest('.cart-product'));
+    } else if (e.target.matches('.cart-product__action-count')) {
+        const id = e.target.closest('.cart-product').dataset.id;
+        const product = state.cart.cartItems.find(item => item.id === parseInt(id));
+        const btn = e.target.value > product.count ? 'inc' : 'dec';
+        if (btn === 'inc') {
+            state.total += product.price;
+            elements.totalPrice.textContent = state.total;
+        } else {
+            state.total -= product.price;
+            elements.totalPrice.textContent = state.total;
+        }
     }
 })
 
