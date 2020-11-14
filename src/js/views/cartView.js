@@ -37,6 +37,11 @@ export const renderCartItems = product => {
 //     }
 // }
 
+export const onRemove = (products, id) => {
+    const index = products.findIndex(product => product.id === id);
+    products.splice(index, 1).slice();
+};
+
 export const clearCartView = () => {
     elements.cartItems.innerHTML = '';
 }

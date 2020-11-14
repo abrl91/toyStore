@@ -60,8 +60,8 @@ elements.products.addEventListener('click', e => {
         const chosenProduct = state.products.find(p => p.id === parseInt(id));
         if (state.cart.addToCart(chosenProduct)) {
             cartView.renderCartItems(chosenProduct);
-            const total = state.cart.calcTotal();
-            elements.totalPrice.textContent = total;
+            state.total = state.cart.calcTotal();
+            elements.totalPrice.textContent = state.total;
         }
     }
 })
@@ -75,8 +75,13 @@ elements.clearCart.addEventListener('click', () => {
 elements.cartItems.addEventListener('click', e => {
     const id = e.target.closest('.cart-product').dataset.id;
     if (e.target.matches('.cart-product__actions-remove *')) {
+        const deletedProduct = state.cart.cartItems.find(item => item.id === parseInt(id));
+        state.total -= deletedProduct.price;
+        elements.totalPrice.textContent = state.total;
+
         state.cart.removeProduct(id);
-        console.log(state.cart.cartItems);
+        cartView.onRemove(state.cart.cartItems, id);
+        elements.cartItems.removeChild(e.target.closest('.cart-product'));
     }
 })
 

@@ -20,7 +20,7 @@ export default class Cart {
                 total += calcProduct;
             })
         }
-        return `${total}$`;
+        return total;
     }
 
     removeProduct(id) {
