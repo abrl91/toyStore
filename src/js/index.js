@@ -20,7 +20,6 @@ const state = {}
 * */
 
 window.addEventListener('load', async () => {
-    await fetchProducts('./assets/db/toys.json');
     await productController()
     cartController();
 
@@ -44,7 +43,13 @@ const fetchProducts = async (url) => {
 
 /** PRODUCT CONTROLLER **/
 const productController = async () => {
+    await fetchProducts('./assets/db/toys.json');
 
+}
+
+/** CART CONTROLLER **/
+const cartController = (productId) => {
+    if (!state.cart) state.cart = new Cart();
 
 }
 
@@ -55,18 +60,25 @@ elements.products.addEventListener('click', e => {
         const chosenProduct = state.products.find(p => p.id === parseInt(id));
         if (state.cart.addToCart(chosenProduct)) {
             cartView.renderCartItems(chosenProduct);
+            const total = state.cart.calcTotal();
+            elements.totalPrice.textContent = total;
         }
-
     }
 })
 
+elements.clearCart.addEventListener('click', () => {
+    state.cart.clearCart();
+    cartView.clearCartView();
+    elements.totalPrice.textContent = '';
+})
 
-
-/** CART CONTROLLER **/
-const cartController = (productId) => {
-    if (!state.cart) state.cart = new Cart();
-
-}
+elements.cartItems.addEventListener('click', e => {
+    const id = e.target.closest('.cart-product').dataset.id;
+    if (e.target.matches('.cart-product__actions-remove *')) {
+        state.cart.removeProduct(id);
+        console.log(state.cart.cartItems);
+    }
+})
 
 
 

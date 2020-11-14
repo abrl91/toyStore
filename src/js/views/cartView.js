@@ -31,11 +31,11 @@ export const renderCartItems = product => {
 }
 
 
-export const renderTotalToView = (total) => {
-    if (parseInt(total) !== parseInt(elements.total.textContent)) {
-        elements.totalPrice.textContent = total;
-    }
-}
+// export const renderTotalToView = (total) => {
+//     if (parseInt(total) !== parseInt(elements.total.textContent)) {
+//         elements.totalPrice.textContent = total;
+//     }
+// }
 
 export const clearCartView = () => {
     elements.cartItems.innerHTML = '';
