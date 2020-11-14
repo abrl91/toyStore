@@ -9,7 +9,7 @@ export const productView = product => {
                     <p class="product__price">${product.price}$</p>
                 </div>
                 <div class="product__action">
-                    <input class="product__action-count" type="number" value="${product.count}" min="0" max="10">
+                    <input class="product__action-count" type="number" value="${product.count}" min="1" max="10">
                     <button class="btn-action product__action-addToCart">
                         <img src="./assets/icons/add-to-cart.png">
                     </button>

@@ -48,7 +48,7 @@ const productController = async () => {
 }
 
 /** CART CONTROLLER **/
-const cartController = (productId) => {
+const cartController = () => {
     if (!state.cart) state.cart = new Cart();
 
 }
@@ -62,6 +62,30 @@ elements.products.addEventListener('click', e => {
             cartView.renderCartItems(chosenProduct);
             state.total = state.cart.calcTotal();
             elements.totalPrice.textContent = state.total;
+        }
+    } else if (e.target.matches('.product__action-count')) {
+        const id = e.target.closest('.product').dataset.id;
+        const product = state.cart.cartItems.find(item => item.id === parseInt(id));
+        const isProductInCart = state.cart.cartItems.some(item => item.id === product.id)
+        // if (isProductInCart) {
+        //     const test = document.querySelectorAll('.product__action-count');
+        //     for (let t in test) {
+        //         if (t === id) {
+        //             test[t].setAttribute('disabled', true);
+        //         }
+        //     }
+        // }
+        if (product && !isProductInCart) {
+            const btn = e.target.value > product.count ? 'inc' : 'dec';
+            if (btn === 'inc') {
+                product.count++;
+                state.total += product.price;
+                elements.totalPrice.textContent = state.total;
+            } else {
+                product.count--
+                state.total -= product.price;
+                elements.totalPrice.textContent = state.total;
+            }
         }
     }
 })
@@ -87,9 +111,11 @@ elements.cartItems.addEventListener('click', e => {
         const product = state.cart.cartItems.find(item => item.id === parseInt(id));
         const btn = e.target.value > product.count ? 'inc' : 'dec';
         if (btn === 'inc') {
+            product.count++;
             state.total += product.price;
             elements.totalPrice.textContent = state.total;
         } else {
+            product.count--;
             state.total -= product.price;
             elements.totalPrice.textContent = state.total;
         }
